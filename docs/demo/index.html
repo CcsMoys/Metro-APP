@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MetroVive 3D — Demo Metro de Caracas</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+  :root { --bg:#0b1220; --panel:#121a2bee; --txt:#e8eefc; --muted:#93a4c3; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html,body { height:100%; font-family:system-ui,Segoe UI,Roboto,sans-serif; background:var(--bg); color:var(--txt); }
+  #map { position:absolute; inset:0; }
+  .hdr { position:absolute; top:10px; left:10px; z-index:10; background:var(--panel); border:1px solid #ffffff22;
+         border-radius:14px; padding:10px 14px; backdrop-filter:blur(8px); max-width:min(92vw,420px); }
+  .hdr h1 { font-size:16px; letter-spacing:.3px; }
+  .hdr h1 span { color:#ffd54a; }
+  .hdr p { font-size:11px; color:var(--muted); margin-top:2px; }
+  .panel { position:absolute; z-index:10; background:var(--panel); border:1px solid #ffffff22; border-radius:14px;
+           padding:12px; backdrop-filter:blur(8px); }
+  #legend { top:80px; left:10px; }
+  #legend .row { display:flex; align-items:center; gap:8px; font-size:12px; padding:3px 0; cursor:pointer; user-select:none; }
+  #legend .row.off { opacity:.35; text-decoration:line-through; }
+  .swatch { width:22px; height:6px; border-radius:3px; flex:none; }
+  #controls { bottom:14px; left:50%; transform:translateX(-50%); display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:center; max-width:96vw; }
+  button { background:#1f2c47; color:var(--txt); border:1px solid #ffffff33; border-radius:10px; padding:8px 14px; font-size:13px; cursor:pointer; }
+  button:hover { background:#2a3b60; }
+  button.active { background:#3d5a9e; border-color:#7ea6ff; }
+  select,input[type=range] { background:#1f2c47; color:var(--txt); border:1px solid #ffffff33; border-radius:8px; padding:6px; font-size:12px; }
+  #clock { font-variant-numeric:tabular-nums; font-size:14px; min-width:88px; text-align:center; background:#0e1626; border-radius:8px; padding:6px 8px; border:1px solid #ffffff22; }
+  #stats { top:10px; right:10px; font-size:12px; min-width:170px; }
+  #stats b { color:#7ec8ff; }
+  #traininfo { right:10px; bottom:14px; font-size:12px; max-width:280px; display:none; }
+  #traininfo h3 { font-size:13px; margin-bottom:6px; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:99px; font-size:11px; font-weight:700; color:#fff; }
+  /* QR modal */
+  #qrmodal { position:fixed; inset:0; z-index:50; background:#0009; display:none; align-items:center; justify-content:center; }
+  #qrbox { background:#fff; color:#111; border-radius:16px; padding:18px; width:300px; text-align:center; }
+  #qrbox canvas { width:200px !important; height:200px !important; margin:10px auto; display:block; }
+  #qrbox .timer { font-size:22px; font-weight:800; color:#c62828; }
+  #qrbox .tickettype { font-weight:700; padding:4px 10px; border-radius:99px; color:#fff; display:inline-block; margin:6px 0; }
+  .close { position:absolute; top:8px; right:12px; cursor:pointer; font-size:18px; color:#666; }
+  .attr { position:absolute; bottom:2px; right:6px; z-index:5; font-size:10px; color:#ffffff88; background:#0008; padding:2px 6px; border-radius:6px; }
+  @media (max-width:640px){ #stats{display:none} .hdr{max-width:70vw} }
+</style>
+</head>
+<body>
+<div id="map"></div>
+
+<div class="hdr panel" style="position:absolute">
+  <h1>🚇 Metro<span>Vive</span> 3D</h1>
+  <p>Demo estática · Red Integrada Región Capital (Metro Caracas · IFE Tuy Medio · MetroCable · Teleférico Ávila) · Datos: mapa-metro-caracas.pdf + GTFS</p>
+</div>
+
+<div id="legend" class="panel"><b style="font-size:12px;color:var(--muted)">Líneas (clic para mostrar/ocultar)</b><div id="legendRows"></div></div>
+
+<div id="stats" class="panel">
+  <div>Trenes activos: <b id="stTrains">–</b></div>
+  <div>Estaciones: <b id="stStops">–</b></div>
+  <div>Hora simulada: <b id="stClock">–</b></div>
+  <div>Modo: <b id="stMode">Tiempo real</b></div>
+</div>
+
+<div id="controls" class="panel">
+  <button id="btnPlay">⏸ Pausar</button>
+  <div id="clock">08:00:00</div>
+  <label style="font-size:12px">Vel <input type="range" id="speed" min="1" max="120" value="30"></label>
+  <button id="btnTunnel">🌘 Modo Túnel</button>
+  <button id="btnQR">🎫 Ticket SUVE</button>
+  <select id="follow"><option value="">Seguir tren…</option></select>
+</div>
+
+<div id="traininfo" class="panel"></div>
+<div class="attr">MetroVive MVP · sin conexión oficial SUVE</div>
+
+<div id="qrmodal">
+  <div id="qrbox" style="position:relative">
+    <span class="close" onclick="document.getElementById('qrmodal').style.display='none'">✕</span>
+    <h3 style="margin-top:0">Billete Digital SUVE</h3>
+    <div class="tickettype" id="qrType" style="background:#E30613">Tarjeta Roja · Público</div>
+    <canvas id="qrcanvas"></canvas>
+    <div>Se renueva en <span class="timer" id="qrTimer">60</span>s</div>
+    <div style="font-size:11px;color:#666;margin-top:6px">Payload cifrado local (HMAC-SHA256 rotativo). Válido 60 s.<br>MetroPuntos: <b id="qrPts">0</b> pts 🎖️</div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+<script>
+/* ================= MetroVive Demo ================= */
+const D = window.METROVIVE_DATA;
+const shapes = D.shapes, stops = D.stops, routes = D.routes;
+
+/* ---- cumulative lengths per shape (meters, equirectangular approx) ---- */
+function segLen(a,b){ const dx=(b[0]-a[0])*111320*Math.cos(a[1]*Math.PI/180), dy=(b[1]-a[1])*110540; return Math.hypot(dx,dy); }
+const shapeMeta = {};
+for (const [sid,pts] of Object.entries(shapes)){
+  const cum=[0]; for(let i=1;i<pts.length;i++) cum.push(cum[i-1]+segLen(pts[i-1],pts[i]));
+  shapeMeta[sid]={pts,cum,total:cum[cum.length-1]};
+}
+function pointAt(sid,dist){
+  const m=shapeMeta[sid]; if(!m) return null;
+  dist=Math.max(0,Math.min(m.total,dist));
+  let i=1; while(i<m.cum.length && m.cum[i]<dist) i++;
+  const c0=m.cum[i-1],c1=m.cum[i],f=c1>c0?(dist-c0)/(c1-c0):0;
+  const a=m.pts[i-1],b=m.pts[i];
+  return {lon:a[0]+(b[0]-a[0])*f, lat:a[1]+(b[1]-a[1])*f, bearing:(Math.atan2((b[0]-a[0])*Math.cos(a[1]*Math.PI/180), b[1]-a[1])*180/Math.PI+360)%360};
+}
+
+/* ---- train fleet: use precomputed active_trains (GTFS segments at 08:00) ---- */
+const T0=28800;
+const trains=[];
+(D.active_trains||[]).forEach(a=>{
+  if(!shapeMeta[a.shape]) return;
+  const lo=Math.min(a.dA,a.dB), hi=Math.max(a.dA,a.dB);
+  trains.push({trip:a.trip, route:a.route, shape:a.shape, d0:lo, d1:hi, t0:a.t0, t1:a.t1});
+});
+console.log('MetroVive demo: trains loaded =', trains.length);
+
+/* ---- clock simulation ---- */
+let simTime=T0, playing=true, speed=30, tunnel=false;
+const DAY=86400;
+function fmt(t){t=((t%DAY)+DAY)%DAY;const h=Math.floor(t/3600),m=Math.floor(t/60)%60,s=Math.floor(t)%60;return String(h).padStart(2,'0')+':'+String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');}
+
+function trainPos(tr,t){
+  // loop: after arrival, wrap to start (simple shuttle model)
+  const cycle=tr.t1-tr.t0;
+  let tt=t;
+  const phase=((tt-tr.t0)%(cycle*2)+cycle*2)%(cycle*2);
+  let frac,d;
+  if(phase<cycle){ frac=phase/cycle; d=tr.d0+(tr.d1-tr.d0)*frac; }
+  else { frac=1-(phase-cycle)/cycle; d=tr.d1+(tr.d0-tr.d1)*frac; }
+  const p=pointAt(tr.shape, d);
+  return {...p, nextStopFrac:frac, route:tr.route};
+}
+
+/* ================= MapLibre ================= */
+const map=new maplibregl.Map({
+  container:'map',
+  style:{version:8,
+    sources:{},
+    layers:[
+      {id:'bg',type:'background',paint:{'background-color':'#0b1220'}},
+      {id:'water',type:'background',paint:{'background-color':'#0e1a2f'}}
+    ]},
+  center:[-66.90,10.49], zoom:11.2, pitch:55, antialias:true, attributionControl:false
+});
+map.addControl(new maplibregl.NavigationControl({visualizePitch:true}),'top-right');
+
+// OSM raster tiles as base (free, works on GH Pages)
+map.on('load',()=>{
+  map.addSource('osm',{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],tileSize:256,maxzoom:19,attribution:'© OpenStreetMap'});
+  map.addLayer({id:'osm',type:'raster',source:'osm',paint:{'raster-opacity':0.28,'raster-saturation':-0.6,'raster-brightness-max':0.55}});
+
+  // GeoJSON sources
+  const lineFC={type:'FeatureCollection',features:Object.entries(D.lines_geo).map(([k,v])=>({type:'Feature',properties:{route:k,color:v.color},geometry:{type:'LineString',coordinates:v.coords}}))};
+  map.addSource('lines',{type:'geojson',data:lineFC});
+  map.addLayer({id:'lines-glow',type:'line',source:'lines',layout:{'line-cap':'round'},paint:{'line-color':['get','color'],'line-width':10,'line-blur':8,'line-opacity':0.5}});
+  map.addLayer({id:'lines-core',type:'line',source:'lines',layout:{'line-cap':'round'},paint:{'line-color':['get','color'],'line-width':4}});
+
+  const stopsFC={type:'FeatureCollection',features:stops.map(s=>({type:'Feature',properties:{name:s.name,id:s.id},geometry:{type:'Point',coordinates:[s.lon,s.lat]}}))};
+  map.addSource('stops',{type:'geojson',data:stopsFC});
+  map.addLayer({id:'stops-dot',type:'circle',source:'stops',paint:{'circle-radius':4,'circle-color':'#fff','circle-stroke-color':'#0b1220','circle-stroke-width':1.5}});
+  map.addLayer({id:'stops-label',type:'symbol',source:'stops',layout:{'text-field':['get','name'],'text-size':10,'text-offset':[0,0.8]},paint:{'text-color':'#cfe0ff','text-halo-color':'#0b1220','text-halo-width':1.5}});
+
+  map.addSource('trains',{type:'geojson',data:{type:'FeatureCollection',features:[]}});
+  // procedurally-generated train icons (rounded rect with windows), one per route color
+  Object.entries(routes).forEach(([rid,r])=>makeTrainSprite(rid,r.color));
+  map.addLayer({id:'trains-layer',type:'symbol',source:'trains',
+    layout:{'icon-image':['get','sprite'],'icon-rotate':['get','bearing'],'icon-rotation-alignment':'map','icon-size':0.8},
+    paint:{}});
+  updateTrains();
+});
+
+/* colored rounded-rect "train" icons generated on canvas */
+function makeTrainSprite(routeId,color){
+  const c=document.createElement('canvas'); c.width=44;c.height=20;
+  const g=c.getContext('2d');
+  g.fillStyle=color||'#888'; roundRect(g,2,4,40,12,6); g.fill();
+  g.strokeStyle='#ffffffcc'; g.lineWidth=1.5; roundRect(g,2,4,40,12,6); g.stroke();
+  g.fillStyle='#ffffffdd'; for(let x=8;x<38;x+=7){g.fillRect(x,7,4,6);}
+  const img=g.getImageData(0,0,44,20);
+  map.addImage('train-'+routeId,{width:44,height:20,data:new Uint8Array(img.data.buffer)});
+}
+function roundRect(g,x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath();}
+
+function updateTrains(){
+  const feats=trains.map(tr=>{
+    const p=trainPos(tr,simTime);
+    if(!p) return null;
+    const visible=!hidden.has(tr.route);
+    if(!visible) return null;
+    return {type:'Feature',properties:{sprite:'train-'+tr.route,color:(routes[tr.route]||{}).color,name:tr.trip,bearing:p.bearing,route:tr.route,next:p.nextStopFrac},geometry:{type:'Point',coordinates:[p.lon,p.lat]}};
+  }).filter(Boolean);
+  const src=map.getSource('trains'); if(src) src.setData({type:'FeatureCollection',features:feats});
+  document.getElementById('stTrains').textContent=feats.length;
+  // follow camera
+  if(followTrip){const tr=trains.find(t=>t.trip===followTrip);if(tr){const p=trainPos(tr,simTime);if(p)map.setCenter([p.lon,p.lat]);}}
+}
+
+/* ---- tunnel mode visuals ---- */
+function applyTunnel(on){
+  tunnel=on;
+  document.getElementById('stMode').textContent=on?'🌘 Túnel (offline-first)':'Tiempo real';
+  document.getElementById('btnTunnel').classList.toggle('active',on);
+  if(map.getLayer('osm')) map.setPaintProperty('osm','raster-opacity',on?0.05:0.28);
+  if(map.getLayer('stops-label')) map.setLayoutProperty('stops-label','visibility',on?'none':'visible');
+  document.body.style.background=on?'#05080f':'var(--bg)';
+}
+
+/* ---- legend ---- */
+const hidden=new Set();
+const legRows=document.getElementById('legendRows');
+Object.entries(routes).forEach(([rid,r])=>{
+  const div=document.createElement('div'); div.className='row';
+  div.innerHTML=`<span class="swatch" style="background:${r.color}"></span>${rid.replace('sistema-ferroviario','IFE')} · ${r.name}`;
+  div.onclick=()=>{hidden.has(rid)?hidden.delete(rid):hidden.add(rid);div.classList.toggle('off');updateTrains();};
+  legRows.appendChild(div);
+});
+
+/* ---- controls ---- */
+const btnPlay=document.getElementById('btnPlay');
+btnPlay.onclick=()=>{playing=!playing;btnPlay.textContent=playing?'⏸ Pausar':'▶ Reanudar';};
+document.getElementById('speed').oninput=e=>speed=+e.target.value;
+document.getElementById('btnTunnel').onclick=()=>applyTunnel(!tunnel);
+const followSel=document.getElementById('follow');
+trains.forEach(tr=>{const o=document.createElement('option');o.value=tr.trip;o.textContent=`${tr.route.replace('sistema-ferroviario:','IFE ')} · ${tr.trip.slice(-8)}`;followSel.appendChild(o);});
+let followTrip='';
+followSel.onchange=e=>{followTrip=e.target.value;map.setZoom(14.5);};
+
+/* main loop */
+let last=performance.now();
+function tick(now){
+  const dt=(now-last)/1000; last=now;
+  if(playing){ simTime+=dt*speed; if(simTime>T0+3600*6) simTime=T0; }
+  document.getElementById('clock').textContent=fmt(simTime);
+  document.getElementById('stClock').textContent=fmt(simTime);
+  updateTrains();
+  requestAnimationFrame(tick);
+}
+
+/* click train -> info */
+map.on('click','trains-layer',e=>{
+  const f=e.features[0]; if(!f)return;
+  const p=f.properties;
+  const box=document.getElementById('traininfo');
+  box.style.display='block';
+  box.innerHTML=`<h3><span class="badge" style="background:${p.color}">${p.route}</span> ${p.route&&routes[p.route]?routes[p.route].name:''}</h3>
+    Trip: <code>${p.name}</code><br>Progreso tramo: <b>${Math.round(p.next*100)}%</b><br>
+    <span style="color:var(--muted)">ETA siguiente parada: ${Math.round((1-p.next)*3+1)} min · Estado: <b style="color:#7ee2a0">En hora</b></span>`;
+});
+map.on('click',e=>{ if(!e.defaultPrevented) document.getElementById('traininfo').style.display='none'; });
+
+/* ---- QR ticket (SUVE colors + rotating HMAC-like payload) ---- */
+let points=0;
+/* FNV-1a doble en hex (suficiente para demo; el backend usa AES-256-GCM/HKDF reales) */
+function demoHash(msg){
+  let h1=0x811c9dc5,h2=0x01000193;
+  for(let i=0;i<msg.length;i++){const c=msg.charCodeAt(i);h1=Math.imul(h1^c,0x01000193)>>>0;h2=Math.imul(h2+ c,0x85ebca6b)>>>0;}
+  return (h1.toString(16).padStart(8,'0')+h2.toString(16).padStart(8,'0')).repeat(3).slice(0,24);
+}
+async function sha256Hex(msg){
+  try{
+    if(window.crypto && crypto.subtle){
+      const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(msg));
+      return [...new Uint8Array(buf)].map(b=>b.toString(16).padStart(2,'0')).join('');
+    }
+  }catch(e){}
+  return demoHash(msg);
+}
+const TIPOS=[['Tarjeta Roja · Público','#E30613'],['Tarjeta Azul · Estudiante','#0072CE'],['Tarjeta Amarilla · Adulto Mayor','#FFCD00']];
+let qrIdx=0;
+function newQR(){
+  const [label,color]=TIPOS[qrIdx%3];
+  const el=document.getElementById('qrType'); el.textContent=label; el.style.background=color; el.style.color=(qrIdx%3===2)?'#222':'#fff';
+  const ts=Math.floor(Date.now()/60000); // 60s rotation window
+  sha256Hex(`METROVIVE|user-demo|${ts}|${label}`).then(sig=>{
+    const payload=`MV1.${ts}.${sig.slice(0,24)}`;
+    QRCode.toCanvas(document.getElementById('qrcanvas'),payload,{width:200,margin:1,color:{dark:'#111',light:'#fff'}});
+  });
+  document.getElementById('qrPts').textContent=points;
+}
+document.getElementById('btnQR').onclick=()=>{
+  document.getElementById('qrmodal').style.display='flex';
+  qrIdx++; points+=10; newQR();
+};
+let qrCountdown=60;
+setInterval(()=>{
+  if(document.getElementById('qrmodal').style.display==='flex'){
+    qrCountdown--; if(qrCountdown<=0){qrCountdown=60;}
+    document.getElementById('qrTimer').textContent=qrCountdown;
+    if(qrCountdown===0) newQR();
+  }
+},1000);
+document.getElementById('qrmodal').onclick=e=>{if(e.target.id==='qrmodal')e.target.style.display='none';};
+
+/* stats + start */
+document.getElementById('stStops').textContent=stops.length;
+window.addEventListener('load',()=>requestAnimationFrame(tick));
+</script>
+</body>
+</html>
