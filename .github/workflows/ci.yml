@@ -1,0 +1,55 @@
+name: MetroVive CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+
+jobs:
+  backend-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r backend/requirements.txt pytest
+      - name: Regenerate GTFS from repo data
+        working-directory: backend
+        run: python -m app.gtfs_export
+      - name: Run test suite
+        working-directory: backend
+        run: python -m pytest tests -q
+
+  demo-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Syntax check demo JS
+        run: |
+          node -e "const fs=require('fs');const h=fs.readFileSync('docs/demo/index.html','utf8');const m=[...h.matchAll(/<script>([\s\S]*?)<\/script>/g)];fs.writeFileSync('/tmp/inline.js',m.map(x=>x[1]).join('\n'))"
+          node --check /tmp/inline.js
+      - name: Validate demo data payload
+        run: node -e "global.window={};require('./docs/demo/data.js');const d=window.METROVIVE_DATA;console.log('routes:',Object.keys(d.routes).length,'stops:',d.stops.length,'active trains:',d.active_trains.length);if(d.active_trains.length<30)process.exit(1)"
+
+  pages:
+    needs: [demo-check]
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/demo
+      - id: deployment
+        uses: actions/deploy-pages@v4

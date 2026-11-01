@@ -1,0 +1,521 @@
+[
+  {
+    "id": "agua-salud",
+    "name": "Agua Salud",
+    "lat": 10.5133323,
+    "lon": -66.9307622,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q11283062",
+    "status": "operational"
+  },
+  {
+    "id": "altamira",
+    "name": "Altamira",
+    "lat": 10.4954478,
+    "lon": -66.8488527,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q5670810",
+    "status": "operational"
+  },
+  {
+    "id": "bellas-artes",
+    "name": "Bellas Artes",
+    "lat": 10.5012426,
+    "lon": -66.9011156,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q11336849",
+    "status": "operational"
+  },
+  {
+    "id": "cano-amarillo",
+    "name": "Caño Amarillo",
+    "lat": 10.5087554,
+    "lon": -66.9232847,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q11295677",
+    "status": "operational"
+  },
+  {
+    "id": "capitolio",
+    "name": "Capitolio",
+    "lat": 10.5048974,
+    "lon": -66.9176005,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q11294573",
+    "status": "operational"
+  },
+  {
+    "id": "chacaito",
+    "name": "Chacaíto",
+    "lat": 10.4909905,
+    "lon": -66.8683538,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q8344452",
+    "status": "operational"
+  },
+  {
+    "id": "chacao",
+    "name": "Chacao",
+    "lat": 10.4930309,
+    "lon": -66.8545356,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q11318084",
+    "status": "operational"
+  },
+  {
+    "id": "colegio-de-ingenieros",
+    "name": "Colegio de Ingenieros",
+    "lat": 10.5012229,
+    "lon": -66.8924959,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q11302848",
+    "status": "operational"
+  },
+  {
+    "id": "gato-negro",
+    "name": "Gato Negro",
+    "lat": 10.5156721,
+    "lon": -66.9393814,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q11296100",
+    "status": "operational"
+  },
+  {
+    "id": "la-california",
+    "name": "La California",
+    "lat": 10.482001,
+    "lon": -66.8183831,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q11346650",
+    "status": "operational"
+  },
+  {
+    "id": "la-hoyada",
+    "name": "La Hoyada",
+    "lat": 10.5033702,
+    "lon": -66.910527,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q11347683",
+    "status": "operational"
+  },
+  {
+    "id": "los-cortijos",
+    "name": "Los Cortijos",
+    "lat": 10.4889,
+    "lon": -66.8265,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q5979604",
+    "status": "operational"
+  },
+  {
+    "id": "los-dos-caminos",
+    "name": "Los Dos Caminos",
+    "lat": 10.4941844,
+    "lon": -66.832339,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q11350371",
+    "status": "operational"
+  },
+  {
+    "id": "miranda",
+    "name": "Miranda",
+    "lat": 10.497338,
+    "lon": -66.8414055,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q11329424",
+    "status": "operational"
+  },
+  {
+    "id": "palo-verde",
+    "name": "Palo Verde",
+    "lat": 10.4785189,
+    "lon": -66.7988352,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q9054862",
+    "status": "operational"
+  },
+  {
+    "id": "parque-carabobo",
+    "name": "Parque Carabobo",
+    "lat": 10.5023442,
+    "lon": -66.9054419,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q11329423",
+    "status": "operational"
+  },
+  {
+    "id": "perez-bonalde",
+    "name": "Pérez Bonalde",
+    "lat": 10.5084317,
+    "lon": -66.9477449,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q11337521",
+    "status": "operational"
+  },
+  {
+    "id": "petare",
+    "name": "Petare",
+    "lat": 10.4787104,
+    "lon": -66.8072228,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q6073300",
+    "status": "operational"
+  },
+  {
+    "id": "plaza-sucre",
+    "name": "Plaza Sucre",
+    "lat": 10.5145388,
+    "lon": -66.9464484,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q11335400",
+    "status": "operational"
+  },
+  {
+    "id": "plaza-venezuela",
+    "name": "Plaza Venezuela",
+    "lat": 10.4958041,
+    "lon": -66.8814072,
+    "lines": [
+      "L1",
+      "L3"
+    ],
+    "wikidata": "Q5147237",
+    "status": "operational"
+  },
+  {
+    "id": "propatria",
+    "name": "Propatria",
+    "lat": 10.5047389,
+    "lon": -66.9559588,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q6087917",
+    "status": "operational"
+  },
+  {
+    "id": "sabana-grande",
+    "name": "Sabana Grande",
+    "lat": 10.4938387,
+    "lon": -66.8762072,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q6519134",
+    "status": "operational"
+  },
+  {
+    "id": "antimano",
+    "name": "Antímano",
+    "lat": 10.4655158,
+    "lon": -66.9786238,
+    "lines": [
+      "L2"
+    ],
+    "wikidata": "Q17192613",
+    "status": "operational"
+  },
+  {
+    "id": "artigas",
+    "name": "Artigas",
+    "lat": 10.4909762,
+    "lon": -66.9412755,
+    "lines": [
+      "L2"
+    ],
+    "wikidata": "Q17192185",
+    "status": "operational"
+  },
+  {
+    "id": "capuchinos",
+    "name": "Capuchinos",
+    "lat": 10.4988945,
+    "lon": -66.9253581,
+    "lines": [
+      "L2",
+      "L4"
+    ],
+    "wikidata": "Q8262796",
+    "status": "operational"
+  },
+  {
+    "id": "carapita",
+    "name": "Carapita",
+    "lat": 10.4708028,
+    "lon": -66.9709587,
+    "lines": [
+      "L2"
+    ],
+    "wikidata": "Q17239907",
+    "status": "operational"
+  },
+  {
+    "id": "caricuao",
+    "name": "Caricuao",
+    "lat": 10.4347956,
+    "lon": -66.981246,
+    "lines": [
+      "L2"
+    ],
+    "wikidata": "Q18521858",
+    "status": "operational"
+  },
+  {
+    "id": "el-silencio",
+    "name": "El Silencio",
+    "lat": 10.5060348,
+    "lon": -66.9188129,
+    "lines": [
+      "L2"
+    ],
+    "wikidata": "Q5400751",
+    "status": "operational"
+  },
+  {
+    "id": "la-paz",
+    "name": "La Paz",
+    "lat": 10.4837008,
+    "lon": -66.9480983,
+    "lines": [
+      "L2"
+    ],
+    "wikidata": "Q11347192",
+    "status": "operational"
+  },
+  {
+    "id": "la-yaguara",
+    "name": "La Yaguara",
+    "lat": 10.4768599,
+    "lon": -66.9594846,
+    "lines": [
+      "L2"
+    ],
+    "wikidata": "Q11346946",
+    "status": "operational"
+  },
+  {
+    "id": "las-adjuntas",
+    "name": "Las Adjuntas",
+    "lat": 10.4255577,
+    "lon": -67.0129172,
+    "lines": [
+      "L2"
+    ],
+    "wikidata": "Q6492035",
+    "status": "operational"
+  },
+  {
+    "id": "mamera",
+    "name": "Mamera",
+    "lat": 10.4590303,
+    "lon": -66.986588,
+    "lines": [
+      "L2"
+    ],
+    "wikidata": "Q11340912",
+    "status": "operational"
+  },
+  {
+    "id": "maternidad",
+    "name": "Maternidad",
+    "lat": 10.4954242,
+    "lon": -66.9326739,
+    "lines": [
+      "L2"
+    ],
+    "wikidata": "Q11340653",
+    "status": "operational"
+  },
+  {
+    "id": "ruiz-pineda",
+    "name": "Ruíz Pineda",
+    "lat": 10.4370971,
+    "lon": -66.9971086,
+    "lines": [
+      "L2"
+    ],
+    "wikidata": "Q22673563",
+    "status": "operational"
+  },
+  {
+    "id": "zoologico",
+    "name": "Zoológico",
+    "lat": 10.4329293,
+    "lon": -66.9726992,
+    "lines": [
+      "L2"
+    ],
+    "wikidata": "Q9097819",
+    "status": "operational"
+  },
+  {
+    "id": "ciudad-universitaria",
+    "name": "Ciudad Universitaria",
+    "lat": 10.4880638,
+    "lon": -66.8891631,
+    "lines": [
+      "L3"
+    ],
+    "wikidata": "Q5770721",
+    "status": "operational"
+  },
+  {
+    "id": "coche",
+    "name": "Coche",
+    "lat": 10.447824,
+    "lon": -66.9234769,
+    "lines": [
+      "L3"
+    ],
+    "wikidata": "Q5775839",
+    "status": "operational"
+  },
+  {
+    "id": "el-valle",
+    "name": "El Valle",
+    "lat": 10.46817,
+    "lon": -66.90512,
+    "lines": [
+      "L3"
+    ],
+    "wikidata": "Q5801828",
+    "status": "operational"
+  },
+  {
+    "id": "la-bandera",
+    "name": "La Bandera",
+    "lat": 10.4794192,
+    "lon": -66.9008891,
+    "lines": [
+      "L3"
+    ],
+    "wikidata": "Q5661169",
+    "status": "operational"
+  },
+  {
+    "id": "la-rinconada",
+    "name": "La Rinconada",
+    "lat": 10.4346581,
+    "lon": -66.9364089,
+    "lines": [
+      "L3"
+    ],
+    "wikidata": "Q5965109",
+    "status": "operational"
+  },
+  {
+    "id": "los-jardines",
+    "name": "Los Jardines",
+    "lat": 10.4589571,
+    "lon": -66.9165304,
+    "lines": [
+      "L3"
+    ],
+    "wikidata": "Q5979856",
+    "status": "operational"
+  },
+  {
+    "id": "los-simbolos",
+    "name": "Los Símbolos",
+    "lat": 10.4837793,
+    "lon": -66.8951699,
+    "lines": [
+      "L3"
+    ],
+    "wikidata": "Q5980417",
+    "status": "operational"
+  },
+  {
+    "id": "mercado",
+    "name": "Mercado",
+    "lat": 10.4404531,
+    "lon": -66.926071,
+    "lines": [
+      "L3"
+    ],
+    "wikidata": "Q6010420",
+    "status": "operational"
+  },
+  {
+    "id": "nuevo-circo",
+    "name": "Nuevo Circo",
+    "lat": 10.4993007,
+    "lon": -66.9087247,
+    "lines": [
+      "L4"
+    ],
+    "wikidata": "Q6046877",
+    "status": "operational"
+  },
+  {
+    "id": "parque-central",
+    "name": "Parque Central",
+    "lat": 10.4978934,
+    "lon": -66.9020852,
+    "lines": [
+      "L4"
+    ],
+    "wikidata": "Q6062049",
+    "status": "operational"
+  },
+  {
+    "id": "teatros",
+    "name": "Teatros",
+    "lat": 10.500989,
+    "lon": -66.9167061,
+    "lines": [
+      "L4"
+    ],
+    "wikidata": "Q12220864",
+    "status": "operational"
+  },
+  {
+    "id": "zona-rental",
+    "name": "Zona Rental",
+    "lat": 10.4951069,
+    "lon": -66.8829456,
+    "lines": [
+      "L4"
+    ],
+    "wikidata": "Q6171599",
+    "status": "operational"
+  }
+]

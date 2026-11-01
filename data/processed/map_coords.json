@@ -1,0 +1,190 @@
+{
+  "metro:propatria": {
+    "x": 0.08846,
+    "y": 0.28857
+  },
+  "metro:perez-bonalde": {
+    "x": 0.11154,
+    "y": 0.24571
+  },
+  "metro:plaza-sucre": {
+    "x": 0.13462,
+    "y": 0.20286
+  },
+  "metro:gato-negro": {
+    "x": 0.16615,
+    "y": 0.17638
+  },
+  "metro:agua-salud": {
+    "x": 0.20077,
+    "y": 0.17638
+  },
+  "metro:cano-amarillo": {
+    "x": 0.23538,
+    "y": 0.17638
+  },
+  "metro:capitolio": {
+    "x": 0.33154,
+    "y": 0.17638
+  },
+  "metro:la-hoyada": {
+    "x": 0.37385,
+    "y": 0.17638
+  },
+  "metro:parque-carabobo": {
+    "x": 0.40462,
+    "y": 0.17638
+  },
+  "metro:bellas-artes": {
+    "x": 0.43538,
+    "y": 0.17638
+  },
+  "metro:colegio-de-ingenieros": {
+    "x": 0.54308,
+    "y": 0.17638
+  },
+  "metro:plaza-venezuela": {
+    "x": 0.57385,
+    "y": 0.17638
+  },
+  "metro:sabana-grande": {
+    "x": 0.60462,
+    "y": 0.17638
+  },
+  "metro:chacaito": {
+    "x": 0.63538,
+    "y": 0.17638
+  },
+  "metro:chacao": {
+    "x": 0.74308,
+    "y": 0.20495
+  },
+  "metro:altamira": {
+    "x": 0.77385,
+    "y": 0.20495
+  },
+  "metro:miranda": {
+    "x": 0.80462,
+    "y": 0.20495
+  },
+  "metro:los-dos-caminos": {
+    "x": 0.83538,
+    "y": 0.20495
+  },
+  "metro:los-cortijos": {
+    "x": 0.88538,
+    "y": 0.20495
+  },
+  "metro:petare": {
+    "x": 0.92195,
+    "y": 0.20495
+  },
+  "metro:palo-verde": {
+    "x": 0.93959,
+    "y": 0.20495
+  },
+  "metro:la-california": {
+    "x": 0.93077,
+    "y": 0.20495
+  },
+  "metro:las-adjuntas": {
+    "x": 0.22769,
+    "y": 0.29286
+  },
+  "metro:ruiz-pineda": {
+    "x": 0.20462,
+    "y": 0.33571
+  },
+  "metro:zoologico": {
+    "x": 0.18154,
+    "y": 0.37857
+  },
+  "metro:caricuao": {
+    "x": 0.15846,
+    "y": 0.42143
+  },
+  "metro:mamera": {
+    "x": 0.13538,
+    "y": 0.46429
+  },
+  "metro:antimano": {
+    "x": 0.11231,
+    "y": 0.50714
+  },
+  "metro:carapita": {
+    "x": 0.10077,
+    "y": 0.57143
+  },
+  "metro:la-yaguara": {
+    "x": 0.10077,
+    "y": 0.64286
+  },
+  "metro:la-paz": {
+    "x": 0.13959,
+    "y": 0.60648
+  },
+  "metro:artigas": {
+    "x": 0.17426,
+    "y": 0.60648
+  },
+  "metro:maternidad": {
+    "x": 0.24564,
+    "y": 0.25905
+  },
+  "metro:el-silencio": {
+    "x": 0.28154,
+    "y": 0.19286
+  },
+  "metro:ciudad-universitaria": {
+    "x": 0.45651,
+    "y": 0.34857
+  },
+  "metro:los-simbolos": {
+    "x": 0.42964,
+    "y": 0.39857
+  },
+  "metro:la-bandera": {
+    "x": 0.40656,
+    "y": 0.44143
+  },
+  "metro:el-valle": {
+    "x": 0.38349,
+    "y": 0.48429
+  },
+  "metro:los-jardines": {
+    "x": 0.36041,
+    "y": 0.52714
+  },
+  "metro:coche": {
+    "x": 0.33733,
+    "y": 0.57
+  },
+  "metro:mercado": {
+    "x": 0.30667,
+    "y": 0.60667
+  },
+  "metro:la-rinconada": {
+    "x": 0.27615,
+    "y": 0.60648
+  },
+  "metro:teatros": {
+    "x": 0.36113,
+    "y": 0.24362
+  },
+  "metro:nuevo-circo": {
+    "x": 0.40846,
+    "y": 0.24362
+  },
+  "metrocable-sanagustin:parque-central": {
+    "x": 0.44974,
+    "y": 0.20476
+  },
+  "metro:zona-rental": {
+    "x": 0.49118,
+    "y": 0.19286
+  },
+  "metro:capuchinos": {
+    "x": 0.29692,
+    "y": 0.24362
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "caracas-cua-rail",
+  "name": "Sistema Ferroviario Central — Tramo Caracas-Cúa",
+  "alt_names": [
+    "IFE Tren TL1",
+    "Ezequiel Zamora railway"
+  ],
+  "city": "Caracas (and Miranda state)",
+  "state": "Distrito Capital / Miranda",
+  "country": "VE",
+  "type": "commuter_rail",
+  "agency": {
+    "name": "Instituto de Ferrocarriles del Estado (IFE)",
+    "url": "http://www.ife.gob.ve/",
+    "timezone": "America/Caracas",
+    "lang": "es"
+  },
+  "opened": "2006-10-15",
+  "status": "operational",
+  "length_km": 41,
+  "interchanges": [
+    {
+      "with_system": "caracas-metro",
+      "at_stop": "caracas-libertador-simon-bolivar",
+      "via": "Metro La Rinconada"
+    }
+  ],
+  "notes": "Currently the only operational segment of the broader Sistema Ferroviario Nacional. Connects Caracas to Cúa in 56 minutes. Max speed 120 km/h."
+}

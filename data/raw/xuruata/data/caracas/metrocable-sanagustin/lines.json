@@ -1,0 +1,18 @@
+[
+  {
+    "id": "L1",
+    "short_name": "MC-SA",
+    "long_name": "Parque Central ↔ San Agustín",
+    "color": "#FFA500",
+    "text_color": "#FFFFFF",
+    "type": "gondola_lift",
+    "status": "operational",
+    "opened": "2010-01-20",
+    "length_km": 1.8,
+    "stops_ordered": [
+      "parque-central",
+      "hornos-de-cal",
+      "la-ceiba"
+    ]
+  }
+]

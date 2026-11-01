@@ -1,0 +1,1347 @@
+{
+ "generated": "2026-11-02",
+ "units": "km",
+ "systems": {
+  "metro": {
+   "system": {
+    "id": "caracas-metro",
+    "name": "Metro de Caracas",
+    "city": "Caracas",
+    "state": "Distrito Capital",
+    "country": "VE",
+    "type": "metro",
+    "agency": {
+     "name": "C.A. Metro de Caracas",
+     "url": "http://www.metrodecaracas.com.ve/",
+     "timezone": "America/Caracas",
+     "lang": "es"
+    },
+    "opened": "1983-01-02",
+    "status": "operational",
+    "lines_operational": [
+     "L1",
+     "L2",
+     "L3",
+     "L4"
+    ],
+    "notes": "Lines 1-4 are operational (47 unique stations). Lines 5 and 6 plus planned extensions of L3 and L4 are excluded from this dataset per the operational-only policy. The Metrocable San Agustín, Teleférico Ávila, and Sistema Ferroviario Central are documented as separate systems in this dataset.",
+    "stations_operational_count": 47
+   },
+   "lines": [
+    {
+     "id": "L1",
+     "short_name": "1",
+     "long_name": "Propatria ↔ Palo Verde",
+     "color": "#E30613",
+     "text_color": "#FFFFFF",
+     "type": "metro",
+     "status": "operational",
+     "opened": "1983-01-02",
+     "length_km": 20.4,
+     "stops_ordered": [
+      "propatria",
+      "perez-bonalde",
+      "plaza-sucre",
+      "gato-negro",
+      "agua-salud",
+      "cano-amarillo",
+      "capitolio",
+      "la-hoyada",
+      "parque-carabobo",
+      "bellas-artes",
+      "colegio-de-ingenieros",
+      "plaza-venezuela",
+      "sabana-grande",
+      "chacaito",
+      "chacao",
+      "altamira",
+      "miranda",
+      "los-dos-caminos",
+      "los-cortijos",
+      "la-california",
+      "petare",
+      "palo-verde"
+     ]
+    },
+    {
+     "id": "L2",
+     "short_name": "2",
+     "long_name": "Las Adjuntas ↔ El Silencio",
+     "color": "#009639",
+     "text_color": "#FFFFFF",
+     "type": "metro",
+     "status": "operational",
+     "opened": "1987-11-05",
+     "length_km": 17.81,
+     "stops_ordered": [
+      "las-adjuntas",
+      "ruiz-pineda",
+      "zoologico",
+      "caricuao",
+      "mamera",
+      "antimano",
+      "carapita",
+      "la-yaguara",
+      "la-paz",
+      "artigas",
+      "maternidad",
+      "capuchinos",
+      "el-silencio"
+     ]
+    },
+    {
+     "id": "L3",
+     "short_name": "3",
+     "long_name": "Plaza Venezuela ↔ La Rinconada",
+     "color": "#0072CE",
+     "text_color": "#FFFFFF",
+     "type": "metro",
+     "status": "operational",
+     "opened": "1994-10-18",
+     "stops_ordered": [
+      "plaza-venezuela",
+      "ciudad-universitaria",
+      "los-simbolos",
+      "la-bandera",
+      "el-valle",
+      "los-jardines",
+      "coche",
+      "mercado",
+      "la-rinconada"
+     ]
+    },
+    {
+     "id": "L4",
+     "short_name": "4",
+     "long_name": "Capuchinos ↔ Zona Rental",
+     "color": "#FFCD00",
+     "text_color": "#000000",
+     "type": "metro",
+     "status": "operational",
+     "opened": "2006-08-18",
+     "stops_ordered": [
+      "capuchinos",
+      "teatros",
+      "nuevo-circo",
+      "parque-central",
+      "zona-rental"
+     ]
+    }
+   ]
+  },
+  "sistema-ferroviario": {
+   "system": {
+    "id": "caracas-cua-rail",
+    "name": "Sistema Ferroviario Central — Tramo Caracas-Cúa",
+    "alt_names": [
+     "IFE Tren TL1",
+     "Ezequiel Zamora railway"
+    ],
+    "city": "Caracas (and Miranda state)",
+    "state": "Distrito Capital / Miranda",
+    "country": "VE",
+    "type": "commuter_rail",
+    "agency": {
+     "name": "Instituto de Ferrocarriles del Estado (IFE)",
+     "url": "http://www.ife.gob.ve/",
+     "timezone": "America/Caracas",
+     "lang": "es"
+    },
+    "opened": "2006-10-15",
+    "status": "operational",
+    "length_km": 41,
+    "interchanges": [
+     {
+      "with_system": "caracas-metro",
+      "at_stop": "caracas-libertador-simon-bolivar",
+      "via": "Metro La Rinconada"
+     }
+    ],
+    "notes": "Currently the only operational segment of the broader Sistema Ferroviario Nacional. Connects Caracas to Cúa in 56 minutes. Max speed 120 km/h."
+   },
+   "lines": [
+    {
+     "id": "TL1",
+     "short_name": "TL1",
+     "long_name": "Caracas ↔ Cúa",
+     "color": "#7B2D8E",
+     "text_color": "#FFFFFF",
+     "type": "commuter_rail",
+     "status": "operational",
+     "opened": "2006-10-15",
+     "length_km": 41,
+     "stops_ordered": [
+      "caracas-libertador-simon-bolivar",
+      "charallave-norte-francisco-de-miranda",
+      "charallave-sur-simon-rodriguez",
+      "cua-general-ezequiel-zamora"
+     ]
+    }
+   ]
+  },
+  "teleferico-avila": {
+   "system": {
+    "id": "caracas-teleferico-avila",
+    "name": "Teleférico Warairarepano (Ávila)",
+    "city": "Caracas",
+    "state": "Distrito Capital",
+    "country": "VE",
+    "type": "aerial_tramway",
+    "agency": {
+     "name": "Sistema Teleférico Warairarepano",
+     "url": null,
+     "timezone": "America/Caracas",
+     "lang": "es"
+    },
+    "opened": "1956",
+    "reopened": "2000",
+    "status": "operational",
+    "notes": "Recreational gondola from Maripérez (Caracas) to the summit of Cerro El Ávila (Warairarepano National Park) at 2,150 m. Originally built 1956, restored 1999-2000."
+   },
+   "lines": [
+    {
+     "id": "L1",
+     "short_name": "Maripérez–Ávila",
+     "long_name": "Maripérez ↔ Cumbre Ávila",
+     "color": "#5DADE2",
+     "text_color": "#FFFFFF",
+     "type": "aerial_tramway",
+     "status": "operational",
+     "stops_ordered": [
+      "mariperez",
+      "cumbre-avila"
+     ]
+    }
+   ]
+  },
+  "metrocable-sanagustin": {
+   "system": {
+    "id": "caracas-metrocable-sanagustin",
+    "name": "Metrocable San Agustín",
+    "city": "Caracas",
+    "state": "Distrito Capital",
+    "country": "VE",
+    "type": "gondola_lift",
+    "agency": {
+     "name": "C.A. Metro de Caracas",
+     "url": "http://www.metrodecaracas.com.ve/",
+     "timezone": "America/Caracas",
+     "lang": "es"
+    },
+    "opened": "2010-01-20",
+    "status": "operational",
+    "status_note": "Originally built with 5 stations; only the 3 documented here remain operational. El Manguito and San Agustín stations were closed indefinitely (last confirmed in 2020 reporting) and are not in this dataset.",
+    "length_km": 1.8,
+    "interchanges": [
+     {
+      "with_system": "caracas-metro",
+      "at_stop": "parque-central",
+      "via": "Metro Parque Central (L1)"
+     }
+    ],
+    "notes": "Urban gondola lift integrating San Agustín hillside neighborhood with the metro system."
+   },
+   "lines": [
+    {
+     "id": "L1",
+     "short_name": "MC-SA",
+     "long_name": "Parque Central ↔ San Agustín",
+     "color": "#FFA500",
+     "text_color": "#FFFFFF",
+     "type": "gondola_lift",
+     "status": "operational",
+     "opened": "2010-01-20",
+     "length_km": 1.8,
+     "stops_ordered": [
+      "parque-central",
+      "hornos-de-cal",
+      "la-ceiba"
+     ]
+    }
+   ]
+  }
+ },
+ "stops": [
+  {
+   "id": "agua-salud",
+   "name": "Agua Salud",
+   "lat": 10.5133323,
+   "lon": -66.9307622,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q11283062",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "altamira",
+   "name": "Altamira",
+   "lat": 10.4954478,
+   "lon": -66.8488527,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q5670810",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "bellas-artes",
+   "name": "Bellas Artes",
+   "lat": 10.5012426,
+   "lon": -66.9011156,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q11336849",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "cano-amarillo",
+   "name": "Caño Amarillo",
+   "lat": 10.5087554,
+   "lon": -66.9232847,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q11295677",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "capitolio",
+   "name": "Capitolio",
+   "lat": 10.5048974,
+   "lon": -66.9176005,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q11294573",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "chacaito",
+   "name": "Chacaíto",
+   "lat": 10.4909905,
+   "lon": -66.8683538,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q8344452",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "chacao",
+   "name": "Chacao",
+   "lat": 10.4930309,
+   "lon": -66.8545356,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q11318084",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "colegio-de-ingenieros",
+   "name": "Colegio de Ingenieros",
+   "lat": 10.5012229,
+   "lon": -66.8924959,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q11302848",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "gato-negro",
+   "name": "Gato Negro",
+   "lat": 10.5156721,
+   "lon": -66.9393814,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q11296100",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "la-california",
+   "name": "La California",
+   "lat": 10.482001,
+   "lon": -66.8183831,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q11346650",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "la-hoyada",
+   "name": "La Hoyada",
+   "lat": 10.5033702,
+   "lon": -66.910527,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q11347683",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "los-cortijos",
+   "name": "Los Cortijos",
+   "lat": 10.4889,
+   "lon": -66.8265,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q5979604",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "los-dos-caminos",
+   "name": "Los Dos Caminos",
+   "lat": 10.4941844,
+   "lon": -66.832339,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q11350371",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "miranda",
+   "name": "Miranda",
+   "lat": 10.497338,
+   "lon": -66.8414055,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q11329424",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "palo-verde",
+   "name": "Palo Verde",
+   "lat": 10.4785189,
+   "lon": -66.7988352,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q9054862",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "parque-carabobo",
+   "name": "Parque Carabobo",
+   "lat": 10.5023442,
+   "lon": -66.9054419,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q11329423",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "perez-bonalde",
+   "name": "Pérez Bonalde",
+   "lat": 10.5084317,
+   "lon": -66.9477449,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q11337521",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "petare",
+   "name": "Petare",
+   "lat": 10.4787104,
+   "lon": -66.8072228,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q6073300",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "plaza-sucre",
+   "name": "Plaza Sucre",
+   "lat": 10.5145388,
+   "lon": -66.9464484,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q11335400",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "plaza-venezuela",
+   "name": "Plaza Venezuela",
+   "lat": 10.4958041,
+   "lon": -66.8814072,
+   "lines": [
+    "L1",
+    "L3"
+   ],
+   "wikidata": "Q5147237",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "propatria",
+   "name": "Propatria",
+   "lat": 10.5047389,
+   "lon": -66.9559588,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q6087917",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "sabana-grande",
+   "name": "Sabana Grande",
+   "lat": 10.4938387,
+   "lon": -66.8762072,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q6519134",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "antimano",
+   "name": "Antímano",
+   "lat": 10.4655158,
+   "lon": -66.9786238,
+   "lines": [
+    "L2"
+   ],
+   "wikidata": "Q17192613",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "artigas",
+   "name": "Artigas",
+   "lat": 10.4909762,
+   "lon": -66.9412755,
+   "lines": [
+    "L2"
+   ],
+   "wikidata": "Q17192185",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "capuchinos",
+   "name": "Capuchinos",
+   "lat": 10.4988945,
+   "lon": -66.9253581,
+   "lines": [
+    "L2",
+    "L4"
+   ],
+   "wikidata": "Q8262796",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "carapita",
+   "name": "Carapita",
+   "lat": 10.4708028,
+   "lon": -66.9709587,
+   "lines": [
+    "L2"
+   ],
+   "wikidata": "Q17239907",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "caricuao",
+   "name": "Caricuao",
+   "lat": 10.4347956,
+   "lon": -66.981246,
+   "lines": [
+    "L2"
+   ],
+   "wikidata": "Q18521858",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "el-silencio",
+   "name": "El Silencio",
+   "lat": 10.5060348,
+   "lon": -66.9188129,
+   "lines": [
+    "L2"
+   ],
+   "wikidata": "Q5400751",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "la-paz",
+   "name": "La Paz",
+   "lat": 10.4837008,
+   "lon": -66.9480983,
+   "lines": [
+    "L2"
+   ],
+   "wikidata": "Q11347192",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "la-yaguara",
+   "name": "La Yaguara",
+   "lat": 10.4768599,
+   "lon": -66.9594846,
+   "lines": [
+    "L2"
+   ],
+   "wikidata": "Q11346946",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "las-adjuntas",
+   "name": "Las Adjuntas",
+   "lat": 10.4255577,
+   "lon": -67.0129172,
+   "lines": [
+    "L2"
+   ],
+   "wikidata": "Q6492035",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "mamera",
+   "name": "Mamera",
+   "lat": 10.4590303,
+   "lon": -66.986588,
+   "lines": [
+    "L2"
+   ],
+   "wikidata": "Q11340912",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "maternidad",
+   "name": "Maternidad",
+   "lat": 10.4954242,
+   "lon": -66.9326739,
+   "lines": [
+    "L2"
+   ],
+   "wikidata": "Q11340653",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "ruiz-pineda",
+   "name": "Ruíz Pineda",
+   "lat": 10.4370971,
+   "lon": -66.9971086,
+   "lines": [
+    "L2"
+   ],
+   "wikidata": "Q22673563",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "zoologico",
+   "name": "Zoológico",
+   "lat": 10.4329293,
+   "lon": -66.9726992,
+   "lines": [
+    "L2"
+   ],
+   "wikidata": "Q9097819",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "ciudad-universitaria",
+   "name": "Ciudad Universitaria",
+   "lat": 10.4880638,
+   "lon": -66.8891631,
+   "lines": [
+    "L3"
+   ],
+   "wikidata": "Q5770721",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "coche",
+   "name": "Coche",
+   "lat": 10.447824,
+   "lon": -66.9234769,
+   "lines": [
+    "L3"
+   ],
+   "wikidata": "Q5775839",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "el-valle",
+   "name": "El Valle",
+   "lat": 10.46817,
+   "lon": -66.90512,
+   "lines": [
+    "L3"
+   ],
+   "wikidata": "Q5801828",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "la-bandera",
+   "name": "La Bandera",
+   "lat": 10.4794192,
+   "lon": -66.9008891,
+   "lines": [
+    "L3"
+   ],
+   "wikidata": "Q5661169",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "la-rinconada",
+   "name": "La Rinconada",
+   "lat": 10.4346581,
+   "lon": -66.9364089,
+   "lines": [
+    "L3"
+   ],
+   "wikidata": "Q5965109",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "los-jardines",
+   "name": "Los Jardines",
+   "lat": 10.4589571,
+   "lon": -66.9165304,
+   "lines": [
+    "L3"
+   ],
+   "wikidata": "Q5979856",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "los-simbolos",
+   "name": "Los Símbolos",
+   "lat": 10.4837793,
+   "lon": -66.8951699,
+   "lines": [
+    "L3"
+   ],
+   "wikidata": "Q5980417",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "mercado",
+   "name": "Mercado",
+   "lat": 10.4404531,
+   "lon": -66.926071,
+   "lines": [
+    "L3"
+   ],
+   "wikidata": "Q6010420",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "nuevo-circo",
+   "name": "Nuevo Circo",
+   "lat": 10.4993007,
+   "lon": -66.9087247,
+   "lines": [
+    "L4"
+   ],
+   "wikidata": "Q6046877",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "parque-central",
+   "name": "Parque Central",
+   "lat": 10.499,
+   "lon": -66.9027,
+   "lines": [
+    "L1"
+   ],
+   "status": "operational",
+   "notes": "Interchange with Metro de Caracas Line 1 at Parque Central station.",
+   "system": "metrocable-sanagustin"
+  },
+  {
+   "id": "teatros",
+   "name": "Teatros",
+   "lat": 10.500989,
+   "lon": -66.9167061,
+   "lines": [
+    "L4"
+   ],
+   "wikidata": "Q12220864",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "zona-rental",
+   "name": "Zona Rental",
+   "lat": 10.4951069,
+   "lon": -66.8829456,
+   "lines": [
+    "L4"
+   ],
+   "wikidata": "Q6171599",
+   "status": "operational",
+   "system": "metro"
+  },
+  {
+   "id": "caracas-libertador-simon-bolivar",
+   "name": "Caracas (Libertador Simón Bolívar)",
+   "lat": 10.434444,
+   "lon": -66.937222,
+   "lines": [
+    "TL1"
+   ],
+   "wikidata": "Q6541324",
+   "status": "operational",
+   "system": "sistema-ferroviario"
+  },
+  {
+   "id": "charallave-norte-francisco-de-miranda",
+   "name": "Charallave Norte (Francisco de Miranda)",
+   "lat": 10.274507455,
+   "lon": -66.843721932,
+   "lines": [
+    "TL1"
+   ],
+   "wikidata": "Q5841536",
+   "status": "operational",
+   "system": "sistema-ferroviario"
+  },
+  {
+   "id": "charallave-sur-simon-rodriguez",
+   "name": "Charallave Sur (Simón Rodríguez)",
+   "lat": 10.23723162,
+   "lon": -66.856564028,
+   "lines": [
+    "TL1"
+   ],
+   "wikidata": "Q2835413",
+   "status": "operational",
+   "system": "sistema-ferroviario"
+  },
+  {
+   "id": "cua-general-ezequiel-zamora",
+   "name": "Cúa (General Ezequiel Zamora)",
+   "lat": 10.153980539,
+   "lon": -66.873787747,
+   "lines": [
+    "TL1"
+   ],
+   "wikidata": "Q5841860",
+   "status": "operational",
+   "system": "sistema-ferroviario"
+  },
+  {
+   "id": "mariperez",
+   "name": "Maripérez (base)",
+   "lat": 10.506,
+   "lon": -66.8866,
+   "lines": [
+    "L1"
+   ],
+   "status": "operational",
+   "wikidata": null,
+   "system": "teleferico-avila"
+  },
+  {
+   "id": "cumbre-avila",
+   "name": "Ávila (cumbre)",
+   "lat": 10.5411,
+   "lon": -66.88032,
+   "lines": [
+    "L1"
+   ],
+   "wikidata": "Q20994756",
+   "status": "operational",
+   "system": "teleferico-avila"
+  },
+  {
+   "id": "hornos-de-cal",
+   "name": "Hornos de Cal",
+   "lat": 10.4951,
+   "lon": -66.9032,
+   "lines": [
+    "L1"
+   ],
+   "status": "operational",
+   "system": "metrocable-sanagustin"
+  },
+  {
+   "id": "la-ceiba",
+   "name": "La Ceiba",
+   "lat": 10.4929,
+   "lon": -66.9027,
+   "lines": [
+    "L1"
+   ],
+   "status": "operational",
+   "system": "metrocable-sanagustin"
+  },
+  {
+   "id": "metro-caracas-l4",
+   "name": "Caracas (Metro L4/SIFASE)",
+   "lat": 10.434844,
+   "lon": -66.936822,
+   "lines": [
+    "L4"
+   ],
+   "system": "metro",
+   "status": "operational",
+   "opened": "2025-07",
+   "source": "Fuentes mixtas: xuruata + anuncio oficial Metro de Caracas"
+  }
+ ],
+ "edges": [
+  {
+   "from": "propatria",
+   "to": "perez-bonalde",
+   "line": "L1",
+   "distance_km": 0.9875,
+   "mode": "metro"
+  },
+  {
+   "from": "perez-bonalde",
+   "to": "plaza-sucre",
+   "line": "L1",
+   "distance_km": 0.6937,
+   "mode": "metro"
+  },
+  {
+   "from": "plaza-sucre",
+   "to": "gato-negro",
+   "line": "L1",
+   "distance_km": 0.7828,
+   "mode": "metro"
+  },
+  {
+   "from": "gato-negro",
+   "to": "agua-salud",
+   "line": "L1",
+   "distance_km": 0.9776,
+   "mode": "metro"
+  },
+  {
+   "from": "agua-salud",
+   "to": "cano-amarillo",
+   "line": "L1",
+   "distance_km": 0.963,
+   "mode": "metro"
+  },
+  {
+   "from": "cano-amarillo",
+   "to": "capitolio",
+   "line": "L1",
+   "distance_km": 0.7551,
+   "mode": "metro"
+  },
+  {
+   "from": "capitolio",
+   "to": "la-hoyada",
+   "line": "L1",
+   "distance_km": 0.7918,
+   "mode": "metro"
+  },
+  {
+   "from": "la-hoyada",
+   "to": "parque-carabobo",
+   "line": "L1",
+   "distance_km": 0.5675,
+   "mode": "metro"
+  },
+  {
+   "from": "parque-carabobo",
+   "to": "bellas-artes",
+   "line": "L1",
+   "distance_km": 0.4886,
+   "mode": "metro"
+  },
+  {
+   "from": "bellas-artes",
+   "to": "colegio-de-ingenieros",
+   "line": "L1",
+   "distance_km": 0.9424,
+   "mode": "metro"
+  },
+  {
+   "from": "colegio-de-ingenieros",
+   "to": "plaza-venezuela",
+   "line": "L1",
+   "distance_km": 1.3538,
+   "mode": "metro"
+  },
+  {
+   "from": "plaza-venezuela",
+   "to": "sabana-grande",
+   "line": "L1",
+   "distance_km": 0.6091,
+   "mode": "metro"
+  },
+  {
+   "from": "sabana-grande",
+   "to": "chacaito",
+   "line": "L1",
+   "distance_km": 0.9152,
+   "mode": "metro"
+  },
+  {
+   "from": "chacaito",
+   "to": "chacao",
+   "line": "L1",
+   "distance_km": 1.5278,
+   "mode": "metro"
+  },
+  {
+   "from": "chacao",
+   "to": "altamira",
+   "line": "L1",
+   "distance_km": 0.677,
+   "mode": "metro"
+  },
+  {
+   "from": "altamira",
+   "to": "miranda",
+   "line": "L1",
+   "distance_km": 0.8409,
+   "mode": "metro"
+  },
+  {
+   "from": "miranda",
+   "to": "los-dos-caminos",
+   "line": "L1",
+   "distance_km": 1.0515,
+   "mode": "metro"
+  },
+  {
+   "from": "los-dos-caminos",
+   "to": "los-cortijos",
+   "line": "L1",
+   "distance_km": 0.8677,
+   "mode": "metro"
+  },
+  {
+   "from": "los-cortijos",
+   "to": "la-california",
+   "line": "L1",
+   "distance_km": 1.1731,
+   "mode": "metro"
+  },
+  {
+   "from": "la-california",
+   "to": "petare",
+   "line": "L1",
+   "distance_km": 1.2739,
+   "mode": "metro"
+  },
+  {
+   "from": "petare",
+   "to": "palo-verde",
+   "line": "L1",
+   "distance_km": 0.9174,
+   "mode": "metro"
+  },
+  {
+   "from": "las-adjuntas",
+   "to": "ruiz-pineda",
+   "line": "L2",
+   "distance_km": 2.1529,
+   "mode": "metro"
+  },
+  {
+   "from": "ruiz-pineda",
+   "to": "zoologico",
+   "line": "L2",
+   "distance_km": 2.7092,
+   "mode": "metro"
+  },
+  {
+   "from": "zoologico",
+   "to": "caricuao",
+   "line": "L2",
+   "distance_km": 0.9574,
+   "mode": "metro"
+  },
+  {
+   "from": "caricuao",
+   "to": "mamera",
+   "line": "L2",
+   "distance_km": 2.7574,
+   "mode": "metro"
+  },
+  {
+   "from": "mamera",
+   "to": "antimano",
+   "line": "L2",
+   "distance_km": 1.1307,
+   "mode": "metro"
+  },
+  {
+   "from": "antimano",
+   "to": "carapita",
+   "line": "L2",
+   "distance_km": 1.0238,
+   "mode": "metro"
+  },
+  {
+   "from": "carapita",
+   "to": "la-yaguara",
+   "line": "L2",
+   "distance_km": 1.424,
+   "mode": "metro"
+  },
+  {
+   "from": "la-yaguara",
+   "to": "la-paz",
+   "line": "L2",
+   "distance_km": 1.459,
+   "mode": "metro"
+  },
+  {
+   "from": "la-paz",
+   "to": "artigas",
+   "line": "L2",
+   "distance_km": 1.1004,
+   "mode": "metro"
+  },
+  {
+   "from": "artigas",
+   "to": "maternidad",
+   "line": "L2",
+   "distance_km": 1.0626,
+   "mode": "metro"
+  },
+  {
+   "from": "maternidad",
+   "to": "capuchinos",
+   "line": "L2",
+   "distance_km": 0.8881,
+   "mode": "metro"
+  },
+  {
+   "from": "capuchinos",
+   "to": "el-silencio",
+   "line": "L2",
+   "distance_km": 1.0689,
+   "mode": "metro"
+  },
+  {
+   "from": "plaza-venezuela",
+   "to": "ciudad-universitaria",
+   "line": "L3",
+   "distance_km": 1.2083,
+   "mode": "metro"
+  },
+  {
+   "from": "ciudad-universitaria",
+   "to": "los-simbolos",
+   "line": "L3",
+   "distance_km": 0.8114,
+   "mode": "metro"
+  },
+  {
+   "from": "los-simbolos",
+   "to": "la-bandera",
+   "line": "L3",
+   "distance_km": 0.7913,
+   "mode": "metro"
+  },
+  {
+   "from": "la-bandera",
+   "to": "el-valle",
+   "line": "L3",
+   "distance_km": 1.3337,
+   "mode": "metro"
+  },
+  {
+   "from": "el-valle",
+   "to": "los-jardines",
+   "line": "L3",
+   "distance_km": 1.6144,
+   "mode": "metro"
+  },
+  {
+   "from": "los-jardines",
+   "to": "coche",
+   "line": "L3",
+   "distance_km": 1.4524,
+   "mode": "metro"
+  },
+  {
+   "from": "coche",
+   "to": "mercado",
+   "line": "L3",
+   "distance_km": 0.8673,
+   "mode": "metro"
+  },
+  {
+   "from": "mercado",
+   "to": "la-rinconada",
+   "line": "L3",
+   "distance_km": 1.3012,
+   "mode": "metro"
+  },
+  {
+   "from": "capuchinos",
+   "to": "teatros",
+   "line": "L4",
+   "distance_km": 0.9742,
+   "mode": "metro"
+  },
+  {
+   "from": "teatros",
+   "to": "nuevo-circo",
+   "line": "L4",
+   "distance_km": 0.8926,
+   "mode": "metro"
+  },
+  {
+   "from": "nuevo-circo",
+   "to": "parque-central",
+   "line": "L4",
+   "distance_km": 0.6595,
+   "mode": "metro"
+  },
+  {
+   "from": "parque-central",
+   "to": "zona-rental",
+   "line": "L4",
+   "distance_km": 2.2028,
+   "mode": "metro"
+  },
+  {
+   "from": "caracas-libertador-simon-bolivar",
+   "to": "charallave-norte-francisco-de-miranda",
+   "line": "TL1",
+   "distance_km": 20.5152,
+   "mode": "commuter_rail"
+  },
+  {
+   "from": "charallave-norte-francisco-de-miranda",
+   "to": "charallave-sur-simon-rodriguez",
+   "line": "TL1",
+   "distance_km": 4.3766,
+   "mode": "commuter_rail"
+  },
+  {
+   "from": "charallave-sur-simon-rodriguez",
+   "to": "cua-general-ezequiel-zamora",
+   "line": "TL1",
+   "distance_km": 9.4471,
+   "mode": "commuter_rail"
+  },
+  {
+   "from": "mariperez",
+   "to": "cumbre-avila",
+   "line": "L1",
+   "distance_km": 3.9629,
+   "mode": "aerial_tramway"
+  },
+  {
+   "from": "parque-central",
+   "to": "hornos-de-cal",
+   "line": "L1",
+   "distance_km": 0.4371,
+   "mode": "gondola_lift"
+  },
+  {
+   "from": "hornos-de-cal",
+   "to": "la-ceiba",
+   "line": "L1",
+   "distance_km": 0.2507,
+   "mode": "gondola_lift"
+  },
+  {
+   "from": "bellas-artes",
+   "to": "parque-central",
+   "line": "WALK",
+   "distance_km": 0.3036,
+   "mode": "walk_transfer"
+  },
+  {
+   "from": "bellas-artes",
+   "to": "hornos-de-cal",
+   "line": "WALK",
+   "distance_km": 0.72,
+   "mode": "walk_transfer"
+  },
+  {
+   "from": "parque-carabobo",
+   "to": "parque-central",
+   "line": "WALK",
+   "distance_km": 0.4776,
+   "mode": "walk_transfer"
+  },
+  {
+   "from": "la-rinconada",
+   "to": "caracas-libertador-simon-bolivar",
+   "line": "WALK",
+   "distance_km": 0.092,
+   "mode": "walk_transfer"
+  },
+  {
+   "from": "nuevo-circo",
+   "to": "parque-central",
+   "line": "WALK",
+   "distance_km": 0.6595,
+   "mode": "walk_transfer"
+  },
+  {
+   "from": "nuevo-circo",
+   "to": "hornos-de-cal",
+   "line": "WALK",
+   "distance_km": 0.7636,
+   "mode": "walk_transfer"
+  },
+  {
+   "from": "caracas-libertador-simon-bolivar",
+   "to": "metro-caracas-l4",
+   "line": "WALK",
+   "distance_km": 0.0624,
+   "mode": "walk_transfer"
+  }
+ ]
+}

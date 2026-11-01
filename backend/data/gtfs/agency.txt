@@ -1,0 +1,2 @@
+agency_id,agency_name,agency_url,agency_timezone,agency_lang
+metrovive,MetroVive (datos consolidados),https://metrodecaracas.com,America/Caracas,es
