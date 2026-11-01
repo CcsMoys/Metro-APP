@@ -1,0 +1,56 @@
+stop_id,stop_name,stop_lat,stop_lon
+metro:agua-salud,Agua Salud,10.513332,-66.930762
+metro:altamira,Altamira,10.495448,-66.848853
+metro:antimano,Antímano,10.465516,-66.978624
+metro:artigas,Artigas,10.490976,-66.941276
+metro:bellas-artes,Bellas Artes,10.501243,-66.901116
+metro:cano-amarillo,Caño Amarillo,10.508755,-66.923285
+metro:capitolio,Capitolio,10.504897,-66.917601
+metro:capuchinos,Capuchinos,10.498895,-66.925358
+metro:carapita,Carapita,10.470803,-66.970959
+metro:caricuao,Caricuao,10.434796,-66.981246
+metro:chacaito,Chacaíto,10.490991,-66.868354
+metro:chacao,Chacao,10.493031,-66.854536
+metro:ciudad-universitaria,Ciudad Universitaria,10.488064,-66.889163
+metro:coche,Coche,10.447824,-66.923477
+metro:colegio-de-ingenieros,Colegio de Ingenieros,10.501223,-66.892496
+metro:el-silencio,El Silencio,10.506035,-66.918813
+metro:el-valle,El Valle,10.468170,-66.905120
+metro:gato-negro,Gato Negro,10.515672,-66.939381
+metro:la-bandera,La Bandera,10.479419,-66.900889
+metro:la-california,La California,10.482001,-66.818383
+metro:la-hoyada,La Hoyada,10.503370,-66.910527
+metro:la-paz,La Paz,10.483701,-66.948098
+metro:la-rinconada,La Rinconada,10.434658,-66.936409
+metro:la-yaguara,La Yaguara,10.476860,-66.959485
+metro:las-adjuntas,Las Adjuntas,10.425558,-67.012917
+metro:los-cortijos,Los Cortijos,10.488900,-66.826500
+metro:los-dos-caminos,Los Dos Caminos,10.494184,-66.832339
+metro:los-jardines,Los Jardines,10.458957,-66.916530
+metro:los-simbolos,Los Símbolos,10.483779,-66.895170
+metro:mamera,Mamera,10.459030,-66.986588
+metro:maternidad,Maternidad,10.495424,-66.932674
+metro:mercado,Mercado,10.440453,-66.926071
+metro:miranda,Miranda,10.497338,-66.841405
+metro:nuevo-circo,Nuevo Circo,10.499301,-66.908725
+metro:palo-verde,Palo Verde,10.478519,-66.798835
+metro:parque-carabobo,Parque Carabobo,10.502344,-66.905442
+metro:perez-bonalde,Pérez Bonalde,10.508432,-66.947745
+metro:petare,Petare,10.478710,-66.807223
+metro:plaza-sucre,Plaza Sucre,10.514539,-66.946448
+metro:plaza-venezuela,Plaza Venezuela,10.495804,-66.881407
+metro:propatria,Propatria,10.504739,-66.955959
+metro:ruiz-pineda,Ruíz Pineda,10.437097,-66.997109
+metro:sabana-grande,Sabana Grande,10.493839,-66.876207
+metro:teatros,Teatros,10.500989,-66.916706
+metro:zona-rental,Zona Rental,10.495107,-66.882946
+metro:zoologico,Zoológico,10.432929,-66.972699
+metrocable-sanagustin:hornos-de-cal,Hornos de Cal,10.495100,-66.903200
+metrocable-sanagustin:la-ceiba,La Ceiba,10.492900,-66.902700
+metrocable-sanagustin:parque-central,Parque Central,10.499000,-66.902700
+sistema-ferroviario:caracas-libertador-simon-bolivar,Caracas (Libertador Simón Bolívar),10.434444,-66.937222
+sistema-ferroviario:charallave-norte-francisco-de-miranda,Charallave Norte (Francisco de Miranda),10.274507,-66.843722
+sistema-ferroviario:charallave-sur-simon-rodriguez,Charallave Sur (Simón Rodríguez),10.237232,-66.856564
+sistema-ferroviario:cua-general-ezequiel-zamora,Cúa (General Ezequiel Zamora),10.153981,-66.873788
+teleferico-avila:cumbre-avila,Ávila (cumbre),10.541100,-66.880320
+teleferico-avila:mariperez,Maripérez (base),10.506000,-66.886600

@@ -1,0 +1,8 @@
+route_id,agency_id,route_short_name,route_long_name,route_type,route_color
+metro:L1,metrovive,metro:L1,Propatria ↔ Palo Verde,1,E30613
+metro:L2,metrovive,metro:L2,Las Adjuntas ↔ El Silencio,1,009639
+metro:L3,metrovive,metro:L3,Plaza Venezuela ↔ La Rinconada,1,0072CE
+metro:L4,metrovive,metro:L4,Capuchinos ↔ Zona Rental,1,FFCD00
+sistema-ferroviario:TL1,metrovive,sistema-ferroviario:TL1,Caracas ↔ Cúa,2,7B2D8E
+teleferico-avila:L1,metrovive,teleferico-avila:L1,Maripérez ↔ Cumbre Ávila,1,5DADE2
+metrocable-sanagustin:L1,metrovive,metrocable-sanagustin:L1,Parque Central ↔ San Agustín,1,FFA500
