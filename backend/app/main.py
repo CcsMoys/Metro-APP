@@ -5,6 +5,13 @@ Endpoints:
 - GET /api/stops                          -> paradas del GTFS
 - GET /api/trains/positions?t=HH:MM:SS    -> trenes interpolados (vacío => ahora)
 - GET /api/routes?from=&to=               -> Dijkstra multimodal sobre network.json
+- POST /api/chat                          -> asistente IA (Ollama + fallback reglas)
+- POST /api/tunnel/start|tick|stop        -> telemetría sintética Modo Túnel
+- POST /api/users, GET /api/users/{id}    -> billetera SUVE + MetroPuntos
+- POST /api/trips                         -> registrar viaje (prueba de trayecto)
+- POST /api/redeem                        -> canjear puntos
+- GET  /api/qr/{uid}                      -> QR dinámico AES-GCM (60 s)
+- POST /api/qr/validate                   -> simulador de torniquete
 """
 from __future__ import annotations
 
@@ -13,8 +20,11 @@ import json
 import os
 
 from fastapi import FastAPI, HTTPException, Query
+from pydantic import BaseModel
 
 from .position_engine import PositionEngine
+from .tunnel_mode import TunnelEngine
+from . import loyalty, ai_chat
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 NETWORK_PATH = os.path.join(ROOT, "data", "processed", "network.json")
@@ -25,6 +35,7 @@ app = FastAPI(title="MetroVive API", version="0.1.0")
 @app.on_event("startup")
 def _startup():
     app.state.engine = PositionEngine()
+    app.state.tunnel = TunnelEngine(app.state.engine)
     with open(NETWORK_PATH, encoding="utf-8") as f:
         net = json.load(f)
     app.state.network = net
@@ -92,18 +103,22 @@ def dijkstra(graph, src, dst):
 @app.get("/api/routes")
 def routes(_from: str = Query(..., alias="from"), to: str = Query(...)):
     stops = app.state.stops_by_id
-    for sid in (_from, to):
-        if sid not in stops:
-            # permitir búsqueda por nombre aproximado
-            match = [k for k, s in stops.items() if s["name"].lower().startswith(sid.lower())]
-            if len(match) == 1:
-                if sid == _from:
-                    _from = match[0]
-                else:
-                    to = match[0]
-                continue
-            raise HTTPException(404, f"parada desconocida: {sid}")
-    r = dijkstra(app.state.graph, _from, to)
+    # normalizar ids: aceptar "metro:propatria" == "propatria"
+    def resolve(sid: str) -> str | None:
+        if sid in stops:
+            return sid
+        bare = sid.split(":")[-1]
+        if bare in stops:
+            return bare
+        match = [k for k, s in stops.items() if s["name"].lower().startswith(sid.lower())]
+        return match[0] if len(match) == 1 else None
+
+    src = resolve(_from)
+    dst = resolve(to)
+    if src is None or dst is None:
+        missing = _from if src is None else to
+        raise HTTPException(404, f"parada desconocida: {missing}")
+    r = dijkstra(app.state.graph, src, dst)
     if r is None:
         raise HTTPException(404, "no hay ruta entre esas paradas")
     # enriquecer nombres
@@ -111,3 +126,148 @@ def routes(_from: str = Query(..., alias="from"), to: str = Query(...)):
         leg["from_name"] = stops[leg["from"]]["name"]
         leg["to_name"] = stops[leg["to"]]["name"]
     return r
+
+
+# ============================ Fase 5: Chat IA =============================== #
+
+class ChatRequest(BaseModel):
+    message: str
+
+
+@app.post("/api/chat")
+def chat(req: ChatRequest):
+    def route_fn(src, dst):
+        r = dijkstra(app.state.graph, src, dst)
+        if r:
+            for leg in r["legs"]:
+                leg["from_name"] = app.state.stops_by_id[leg["from"]]["name"]
+                leg["to_name"] = app.state.stops_by_id[leg["to"]]["name"]
+        return r
+
+    ctx = {
+        "stops": app.state.stops_by_id,
+        "route_fn": route_fn,
+        "train_count": len(app.state.engine.now()),
+    }
+    return ai_chat.chat(req.message, ctx)
+
+
+# ========================= Fase 6: Modo Túnel =============================== #
+
+class TunnelStart(BaseModel):
+    trip_id: str | None = None
+    t: str | None = None
+
+
+class TunnelSessionId(BaseModel):
+    session_id: str
+
+
+@app.post("/api/tunnel/start")
+def tunnel_start(req: TunnelStart):
+    try:
+        return app.state.tunnel.start(req.trip_id, req.t)
+    except (KeyError, RuntimeError) as e:
+        raise HTTPException(400, str(e))
+
+
+@app.post("/api/tunnel/tick")
+def tunnel_tick(req: TunnelSessionId):
+    try:
+        return app.state.tunnel.tick(req.session_id)
+    except KeyError as e:
+        raise HTTPException(404, str(e))
+
+
+@app.post("/api/tunnel/stop")
+def tunnel_stop(req: TunnelSessionId):
+    return app.state.tunnel.stop(req.session_id)
+
+
+@app.get("/api/tunnel/sessions")
+def tunnel_sessions():
+    return {"sessions": app.state.tunnel.active()}
+
+
+# ==================== Fase 6: Billetera SUVE + MetroPuntos ================== #
+
+class UserCreate(BaseModel):
+    name: str
+    card_type: str = "roja"
+
+
+class TripCreate(BaseModel):
+    user_id: int
+    from_stop: str
+    to_stop: str
+
+
+class RedeemCreate(BaseModel):
+    user_id: int
+    kind: str  # free_ticket | discount_50
+
+
+class QRValidate(BaseModel):
+    token: str
+    user_name: str
+
+
+@app.post("/api/users")
+def users_create(req: UserCreate):
+    try:
+        return loyalty.create_user(req.name, req.card_type)
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+
+
+@app.get("/api/users/{uid}")
+def users_get(uid: int):
+    try:
+        return loyalty.get_user(uid)
+    except KeyError:
+        raise HTTPException(404, "usuario no existe")
+
+
+@app.post("/api/trips")
+def trips_create(req: TripCreate):
+    def resolve(sid: str) -> str | None:
+        stops = app.state.stops_by_id
+        if sid in stops:
+            return sid
+        bare = sid.split(":")[-1]
+        return bare if bare in stops else None
+
+    src, dst = resolve(req.from_stop), resolve(req.to_stop)
+    if not src or not dst:
+        raise HTTPException(404, "parada desconocida")
+    r = dijkstra(app.state.graph, src, dst)
+    if r is None:
+        raise HTTPException(404, "no hay ruta entre esas paradas")
+    try:
+        res = loyalty.register_trip(req.user_id, req.from_stop, req.to_stop,
+                                    r["total_km"], r["legs"])
+        res["route"] = r
+        return res
+    except (ValueError, KeyError) as e:
+        raise HTTPException(400, str(e))
+
+
+@app.post("/api/redeem")
+def redeem(req: RedeemCreate):
+    try:
+        return loyalty.redeem(req.user_id, req.kind)
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+
+
+@app.get("/api/qr/{uid}")
+def qr_get(uid: int):
+    try:
+        return loyalty.generate_qr(uid)
+    except KeyError:
+        raise HTTPException(404, "usuario no existe")
+
+
+@app.post("/api/qr/validate")
+def qr_validate(req: QRValidate):
+    return loyalty.validate_qr(req.token, req.user_name)
