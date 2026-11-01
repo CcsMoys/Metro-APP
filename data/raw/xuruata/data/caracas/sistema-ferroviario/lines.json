@@ -1,0 +1,19 @@
+[
+  {
+    "id": "TL1",
+    "short_name": "TL1",
+    "long_name": "Caracas ↔ Cúa",
+    "color": "#7B2D8E",
+    "text_color": "#FFFFFF",
+    "type": "commuter_rail",
+    "status": "operational",
+    "opened": "2006-10-15",
+    "length_km": 41,
+    "stops_ordered": [
+      "caracas-libertador-simon-bolivar",
+      "charallave-norte-francisco-de-miranda",
+      "charallave-sur-simon-rodriguez",
+      "cua-general-ezequiel-zamora"
+    ]
+  }
+]

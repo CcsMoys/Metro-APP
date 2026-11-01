@@ -1,0 +1,18 @@
+{
+  "id": "caracas-teleferico-avila",
+  "name": "Teleférico Warairarepano (Ávila)",
+  "city": "Caracas",
+  "state": "Distrito Capital",
+  "country": "VE",
+  "type": "aerial_tramway",
+  "agency": {
+    "name": "Sistema Teleférico Warairarepano",
+    "url": null,
+    "timezone": "America/Caracas",
+    "lang": "es"
+  },
+  "opened": "1956",
+  "reopened": "2000",
+  "status": "operational",
+  "notes": "Recreational gondola from Maripérez (Caracas) to the summit of Cerro El Ávila (Warairarepano National Park) at 2,150 m. Originally built 1956, restored 1999-2000."
+}

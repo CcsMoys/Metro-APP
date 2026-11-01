@@ -1,0 +1,15 @@
+[
+  {
+    "id": "L1",
+    "short_name": "Maripérez–Ávila",
+    "long_name": "Maripérez ↔ Cumbre Ávila",
+    "color": "#5DADE2",
+    "text_color": "#FFFFFF",
+    "type": "aerial_tramway",
+    "status": "operational",
+    "stops_ordered": [
+      "mariperez",
+      "cumbre-avila"
+    ]
+  }
+]

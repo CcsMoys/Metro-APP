@@ -1,0 +1,26 @@
+{
+  "id": "caracas-metrocable-sanagustin",
+  "name": "Metrocable San Agustín",
+  "city": "Caracas",
+  "state": "Distrito Capital",
+  "country": "VE",
+  "type": "gondola_lift",
+  "agency": {
+    "name": "C.A. Metro de Caracas",
+    "url": "http://www.metrodecaracas.com.ve/",
+    "timezone": "America/Caracas",
+    "lang": "es"
+  },
+  "opened": "2010-01-20",
+  "status": "operational",
+  "status_note": "Originally built with 5 stations; only the 3 documented here remain operational. El Manguito and San Agustín stations were closed indefinitely (last confirmed in 2020 reporting) and are not in this dataset.",
+  "length_km": 1.8,
+  "interchanges": [
+    {
+      "with_system": "caracas-metro",
+      "at_stop": "parque-central",
+      "via": "Metro Parque Central (L1)"
+    }
+  ],
+  "notes": "Urban gondola lift integrating San Agustín hillside neighborhood with the metro system."
+}

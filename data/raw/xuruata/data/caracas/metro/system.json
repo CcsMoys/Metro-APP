@@ -1,0 +1,24 @@
+{
+  "id": "caracas-metro",
+  "name": "Metro de Caracas",
+  "city": "Caracas",
+  "state": "Distrito Capital",
+  "country": "VE",
+  "type": "metro",
+  "agency": {
+    "name": "C.A. Metro de Caracas",
+    "url": "http://www.metrodecaracas.com.ve/",
+    "timezone": "America/Caracas",
+    "lang": "es"
+  },
+  "opened": "1983-01-02",
+  "status": "operational",
+  "lines_operational": [
+    "L1",
+    "L2",
+    "L3",
+    "L4"
+  ],
+  "notes": "Lines 1-4 are operational (47 unique stations). Lines 5 and 6 plus planned extensions of L3 and L4 are excluded from this dataset per the operational-only policy. The Metrocable San Agustín, Teleférico Ávila, and Sistema Ferroviario Central are documented as separate systems in this dataset.",
+  "stations_operational_count": 47
+}

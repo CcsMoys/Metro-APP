@@ -1,0 +1,33 @@
+[
+  {
+    "id": "parque-central",
+    "name": "Parque Central",
+    "lat": 10.499,
+    "lon": -66.9027,
+    "lines": [
+      "L1"
+    ],
+    "status": "operational",
+    "notes": "Interchange with Metro de Caracas Line 1 at Parque Central station."
+  },
+  {
+    "id": "hornos-de-cal",
+    "name": "Hornos de Cal",
+    "lat": 10.4951,
+    "lon": -66.9032,
+    "lines": [
+      "L1"
+    ],
+    "status": "operational"
+  },
+  {
+    "id": "la-ceiba",
+    "name": "La Ceiba",
+    "lat": 10.4929,
+    "lon": -66.9027,
+    "lines": [
+      "L1"
+    ],
+    "status": "operational"
+  }
+]

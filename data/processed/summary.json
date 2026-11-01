@@ -1,0 +1,333 @@
+{
+ "systems": {
+  "metro": {
+   "nombre": "Metro de Caracas",
+   "lineas": [
+    {
+     "id": "L1",
+     "ruta": "Propatria ↔ Palo Verde",
+     "color": "#E30613",
+     "paradas": 22,
+     "km": 20.4
+    },
+    {
+     "id": "L2",
+     "ruta": "Las Adjuntas ↔ El Silencio",
+     "color": "#009639",
+     "paradas": 13,
+     "km": 17.81
+    },
+    {
+     "id": "L3",
+     "ruta": "Plaza Venezuela ↔ La Rinconada",
+     "color": "#0072CE",
+     "paradas": 9,
+     "km": null
+    },
+    {
+     "id": "L4",
+     "ruta": "Capuchinos ↔ Zona Rental",
+     "color": "#FFCD00",
+     "paradas": 5,
+     "km": null
+    }
+   ]
+  },
+  "sistema-ferroviario": {
+   "nombre": "Sistema Ferroviario Central — Tramo Caracas-Cúa",
+   "lineas": [
+    {
+     "id": "TL1",
+     "ruta": "Caracas ↔ Cúa",
+     "color": "#7B2D8E",
+     "paradas": 4,
+     "km": 41
+    }
+   ]
+  },
+  "teleferico-avila": {
+   "nombre": "Teleférico Warairarepano (Ávila)",
+   "lineas": [
+    {
+     "id": "L1",
+     "ruta": "Maripérez ↔ Cumbre Ávila",
+     "color": "#5DADE2",
+     "paradas": 2,
+     "km": null
+    }
+   ]
+  },
+  "metrocable-sanagustin": {
+   "nombre": "Metrocable San Agustín",
+   "lineas": [
+    {
+     "id": "L1",
+     "ruta": "Parque Central ↔ San Agustín",
+     "color": "#FFA500",
+     "paradas": 3,
+     "km": 1.8
+    }
+   ]
+  }
+ },
+ "sample_route_propatria_petare": {
+  "total_km": 18.24,
+  "hops": 20,
+  "path": [
+   {
+    "from": "propatria",
+    "to": "perez-bonalde",
+    "line": "L1"
+   },
+   {
+    "from": "perez-bonalde",
+    "to": "plaza-sucre",
+    "line": "L1"
+   },
+   {
+    "from": "plaza-sucre",
+    "to": "gato-negro",
+    "line": "L1"
+   },
+   {
+    "from": "gato-negro",
+    "to": "agua-salud",
+    "line": "L1"
+   },
+   {
+    "from": "agua-salud",
+    "to": "cano-amarillo",
+    "line": "L1"
+   },
+   {
+    "from": "cano-amarillo",
+    "to": "capitolio",
+    "line": "L1"
+   },
+   {
+    "from": "capitolio",
+    "to": "la-hoyada",
+    "line": "L1"
+   },
+   {
+    "from": "la-hoyada",
+    "to": "parque-carabobo",
+    "line": "L1"
+   },
+   {
+    "from": "parque-carabobo",
+    "to": "bellas-artes",
+    "line": "L1"
+   },
+   {
+    "from": "bellas-artes",
+    "to": "colegio-de-ingenieros",
+    "line": "L1"
+   },
+   {
+    "from": "colegio-de-ingenieros",
+    "to": "plaza-venezuela",
+    "line": "L1"
+   },
+   {
+    "from": "plaza-venezuela",
+    "to": "sabana-grande",
+    "line": "L1"
+   },
+   {
+    "from": "sabana-grande",
+    "to": "chacaito",
+    "line": "L1"
+   },
+   {
+    "from": "chacaito",
+    "to": "chacao",
+    "line": "L1"
+   },
+   {
+    "from": "chacao",
+    "to": "altamira",
+    "line": "L1"
+   },
+   {
+    "from": "altamira",
+    "to": "miranda",
+    "line": "L1"
+   },
+   {
+    "from": "miranda",
+    "to": "los-dos-caminos",
+    "line": "L1"
+   },
+   {
+    "from": "los-dos-caminos",
+    "to": "los-cortijos",
+    "line": "L1"
+   },
+   {
+    "from": "los-cortijos",
+    "to": "la-california",
+    "line": "L1"
+   },
+   {
+    "from": "la-california",
+    "to": "petare",
+    "line": "L1"
+   }
+  ]
+ },
+ "sample_route_multimodal_propatria_cua": {
+  "total_km": 53.465,
+  "hops": 23,
+  "path": [
+   {
+    "from": "propatria",
+    "to": "perez-bonalde",
+    "line": "L1"
+   },
+   {
+    "from": "perez-bonalde",
+    "to": "plaza-sucre",
+    "line": "L1"
+   },
+   {
+    "from": "plaza-sucre",
+    "to": "gato-negro",
+    "line": "L1"
+   },
+   {
+    "from": "gato-negro",
+    "to": "agua-salud",
+    "line": "L1"
+   },
+   {
+    "from": "agua-salud",
+    "to": "cano-amarillo",
+    "line": "L1"
+   },
+   {
+    "from": "cano-amarillo",
+    "to": "capitolio",
+    "line": "L1"
+   },
+   {
+    "from": "capitolio",
+    "to": "la-hoyada",
+    "line": "L1"
+   },
+   {
+    "from": "la-hoyada",
+    "to": "parque-carabobo",
+    "line": "L1"
+   },
+   {
+    "from": "parque-carabobo",
+    "to": "bellas-artes",
+    "line": "L1"
+   },
+   {
+    "from": "bellas-artes",
+    "to": "colegio-de-ingenieros",
+    "line": "L1"
+   },
+   {
+    "from": "colegio-de-ingenieros",
+    "to": "plaza-venezuela",
+    "line": "L1"
+   },
+   {
+    "from": "plaza-venezuela",
+    "to": "ciudad-universitaria",
+    "line": "L3"
+   },
+   {
+    "from": "ciudad-universitaria",
+    "to": "los-simbolos",
+    "line": "L3"
+   },
+   {
+    "from": "los-simbolos",
+    "to": "la-bandera",
+    "line": "L3"
+   },
+   {
+    "from": "la-bandera",
+    "to": "el-valle",
+    "line": "L3"
+   },
+   {
+    "from": "el-valle",
+    "to": "los-jardines",
+    "line": "L3"
+   },
+   {
+    "from": "los-jardines",
+    "to": "coche",
+    "line": "L3"
+   },
+   {
+    "from": "coche",
+    "to": "mercado",
+    "line": "L3"
+   },
+   {
+    "from": "mercado",
+    "to": "la-rinconada",
+    "line": "L3"
+   },
+   {
+    "from": "la-rinconada",
+    "to": "caracas-libertador-simon-bolivar",
+    "line": "WALK"
+   },
+   {
+    "from": "caracas-libertador-simon-bolivar",
+    "to": "charallave-norte-francisco-de-miranda",
+    "line": "TL1"
+   },
+   {
+    "from": "charallave-norte-francisco-de-miranda",
+    "to": "charallave-sur-simon-rodriguez",
+    "line": "TL1"
+   },
+   {
+    "from": "charallave-sur-simon-rodriguez",
+    "to": "cua-general-ezequiel-zamora",
+    "line": "TL1"
+   }
+  ]
+ },
+ "transfers_walk": [
+  {
+   "de": "Bellas Artes",
+   "a": "Parque Central",
+   "metros": 304
+  },
+  {
+   "de": "Bellas Artes",
+   "a": "Hornos de Cal",
+   "metros": 720
+  },
+  {
+   "de": "Parque Carabobo",
+   "a": "Parque Central",
+   "metros": 478
+  },
+  {
+   "de": "La Rinconada",
+   "a": "Caracas (Libertador Simón Bolívar)",
+   "metros": 92
+  },
+  {
+   "de": "Nuevo Circo",
+   "a": "Parque Central",
+   "metros": 660
+  },
+  {
+   "de": "Nuevo Circo",
+   "a": "Hornos de Cal",
+   "metros": 764
+  }
+ ],
+ "routing_note": "Los transbordos WALK tienen penalizacion de 0.35 km-equivalentes (~8-12 min) para preferir rutas directas."
+}

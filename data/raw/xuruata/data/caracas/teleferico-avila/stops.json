@@ -1,0 +1,24 @@
+[
+  {
+    "id": "mariperez",
+    "name": "Maripérez (base)",
+    "lat": 10.506,
+    "lon": -66.8866,
+    "lines": [
+      "L1"
+    ],
+    "status": "operational",
+    "wikidata": null
+  },
+  {
+    "id": "cumbre-avila",
+    "name": "Ávila (cumbre)",
+    "lat": 10.5411,
+    "lon": -66.88032,
+    "lines": [
+      "L1"
+    ],
+    "wikidata": "Q20994756",
+    "status": "operational"
+  }
+]

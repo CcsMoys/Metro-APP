@@ -1,0 +1,101 @@
+[
+  {
+    "id": "L1",
+    "short_name": "1",
+    "long_name": "Propatria ↔ Palo Verde",
+    "color": "#E30613",
+    "text_color": "#FFFFFF",
+    "type": "metro",
+    "status": "operational",
+    "opened": "1983-01-02",
+    "length_km": 20.4,
+    "stops_ordered": [
+      "propatria",
+      "perez-bonalde",
+      "plaza-sucre",
+      "gato-negro",
+      "agua-salud",
+      "cano-amarillo",
+      "capitolio",
+      "la-hoyada",
+      "parque-carabobo",
+      "bellas-artes",
+      "colegio-de-ingenieros",
+      "plaza-venezuela",
+      "sabana-grande",
+      "chacaito",
+      "chacao",
+      "altamira",
+      "miranda",
+      "los-dos-caminos",
+      "los-cortijos",
+      "la-california",
+      "petare",
+      "palo-verde"
+    ]
+  },
+  {
+    "id": "L2",
+    "short_name": "2",
+    "long_name": "Las Adjuntas ↔ El Silencio",
+    "color": "#009639",
+    "text_color": "#FFFFFF",
+    "type": "metro",
+    "status": "operational",
+    "opened": "1987-11-05",
+    "length_km": 17.81,
+    "stops_ordered": [
+      "las-adjuntas",
+      "ruiz-pineda",
+      "zoologico",
+      "caricuao",
+      "mamera",
+      "antimano",
+      "carapita",
+      "la-yaguara",
+      "la-paz",
+      "artigas",
+      "maternidad",
+      "capuchinos",
+      "el-silencio"
+    ]
+  },
+  {
+    "id": "L3",
+    "short_name": "3",
+    "long_name": "Plaza Venezuela ↔ La Rinconada",
+    "color": "#0072CE",
+    "text_color": "#FFFFFF",
+    "type": "metro",
+    "status": "operational",
+    "opened": "1994-10-18",
+    "stops_ordered": [
+      "plaza-venezuela",
+      "ciudad-universitaria",
+      "los-simbolos",
+      "la-bandera",
+      "el-valle",
+      "los-jardines",
+      "coche",
+      "mercado",
+      "la-rinconada"
+    ]
+  },
+  {
+    "id": "L4",
+    "short_name": "4",
+    "long_name": "Capuchinos ↔ Zona Rental",
+    "color": "#FFCD00",
+    "text_color": "#000000",
+    "type": "metro",
+    "status": "operational",
+    "opened": "2006-08-18",
+    "stops_ordered": [
+      "capuchinos",
+      "teatros",
+      "nuevo-circo",
+      "parque-central",
+      "zona-rental"
+    ]
+  }
+]

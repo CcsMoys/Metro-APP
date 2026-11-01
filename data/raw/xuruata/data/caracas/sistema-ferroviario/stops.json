@@ -1,0 +1,46 @@
+[
+  {
+    "id": "caracas-libertador-simon-bolivar",
+    "name": "Caracas (Libertador Simón Bolívar)",
+    "lat": 10.434444,
+    "lon": -66.937222,
+    "lines": [
+      "TL1"
+    ],
+    "wikidata": "Q6541324",
+    "status": "operational"
+  },
+  {
+    "id": "charallave-norte-francisco-de-miranda",
+    "name": "Charallave Norte (Francisco de Miranda)",
+    "lat": 10.274507455,
+    "lon": -66.843721932,
+    "lines": [
+      "TL1"
+    ],
+    "wikidata": "Q5841536",
+    "status": "operational"
+  },
+  {
+    "id": "charallave-sur-simon-rodriguez",
+    "name": "Charallave Sur (Simón Rodríguez)",
+    "lat": 10.23723162,
+    "lon": -66.856564028,
+    "lines": [
+      "TL1"
+    ],
+    "wikidata": "Q2835413",
+    "status": "operational"
+  },
+  {
+    "id": "cua-general-ezequiel-zamora",
+    "name": "Cúa (General Ezequiel Zamora)",
+    "lat": 10.153980539,
+    "lon": -66.873787747,
+    "lines": [
+      "TL1"
+    ],
+    "wikidata": "Q5841860",
+    "status": "operational"
+  }
+]
